@@ -5,9 +5,8 @@ export default function HeaderContextMenu() {
     <li className="header-list-item header-context">
       <button type="button" className="header-button header-context-button">
         <img
+          className="header-context-icon"
           src="img/dots.svg"
-          width="30"
-          height="30"
           alt="Context menu icon"
         />
       </button>

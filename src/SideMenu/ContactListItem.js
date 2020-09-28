@@ -26,8 +26,6 @@ function ContactListItem({
       >
         <img
           src={contactItem.avatarUrl}
-          width="48"
-          height="48"
           alt="User avatar"
           className="contact-avatar"
         />

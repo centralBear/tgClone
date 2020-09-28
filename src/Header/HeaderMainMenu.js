@@ -8,8 +8,6 @@ export default function HeaderMainMenu() {
         <img
           className="header-logo"
           src="img/Telegram.svg"
-          width="62"
-          height="14"
           alt="Telegram logo"
         />
       </button>

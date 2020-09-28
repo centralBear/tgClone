@@ -5,9 +5,8 @@ export default function HeaderSearch() {
     <li className="header-list-item header-search">
       <button type="button" className="header-button header-search-button">
         <img
+          className="header-search-icon"
           src="img/search_white.svg"
-          width="30"
-          height="30"
           alt="Search icon"
         />
       </button>
