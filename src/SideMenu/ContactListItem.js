@@ -13,8 +13,8 @@ function ContactListItem({
     classes.push("contact-button-active");
   }
 
-  const onToggle = (id) => {
-    onClick(id);
+  const onToggle = () => {
+    onClick(contactItem.id);
   };
 
   return (
@@ -22,7 +22,7 @@ function ContactListItem({
       <button
         type="button"
         className={`${classes.join(" ")} contact-button`}
-        onClick={() => onToggle(contactItem.id)}
+        onClick={onToggle}
       >
         <img
           src={contactItem.avatarUrl}
