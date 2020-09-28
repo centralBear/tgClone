@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+const classNames = require("classnames");
+
 function ContactListItem({
   contactItem,
   onClick,
   authUserName,
   currentContactId,
 }) {
-  const classes = [];
-
-  if (contactItem.id === currentContactId) {
-    classes.push("contact-button-active");
-  }
+  const isContactActive = () => {
+    if (contactItem.id === currentContactId) {
+      return "contact-button-active";
+    }
+    return false;
+  };
 
   const onToggle = (id) => {
     onClick(id);
@@ -21,7 +24,7 @@ function ContactListItem({
     <li className="contact-item">
       <button
         type="button"
-        className={`${classes.join(" ")} contact-button`}
+        className={classNames("contact-button", isContactActive())}
         onClick={() => onToggle(contactItem.id)}
       >
         <img
