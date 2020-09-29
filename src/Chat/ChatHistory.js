@@ -30,6 +30,9 @@ function ChatHistory({ user, authUser }) {
     return false;
   };
 
+  const isRenderDate = (message) =>
+    message.date !== getPreviousDate(message) || message.id === 0;
+
   return (
     <div className="chat-history">
       <div className="chat-history-gap" />

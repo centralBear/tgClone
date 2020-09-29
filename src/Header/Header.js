@@ -8,20 +8,10 @@ import HeaderContextMenu from "./HeaderContextMenu";
 function Header({ selectedUser }) {
   return (
     <header className="header">
-      <ul className="header-list">
-        <li className="header-list-item header-hamburger">
-          <HeaderMainMenu />
-        </li>
-        <li className="header-list-item contact-info">
-          <HeaderTitle selectedUser={selectedUser} />
-        </li>
-        <li className="header-list-item header-search">
-          <HeaderSearch />
-        </li>
-        <li className="header-list-item header-context">
-          <HeaderContextMenu />
-        </li>
-      </ul>
+      <HeaderMainMenu />
+      <HeaderTitle selectedUser={selectedUser} />
+      <HeaderSearch />
+      <HeaderContextMenu />
     </header>
   );
 }
