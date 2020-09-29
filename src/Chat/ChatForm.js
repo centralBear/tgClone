@@ -4,15 +4,7 @@ import PropTypes from "prop-types";
 function ChatForm({ user, authUser, onSend }) {
   const [value, setValue] = useState("");
 
-  const submitkHandler = (event) => {
-    event.preventDefault();
-    if (value.trim()) {
-      onSend(value);
-    }
-    setValue("");
-  };
-
-  const onClick = (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
     if (value.trim()) {
       onSend(value);
@@ -22,10 +14,9 @@ function ChatForm({ user, authUser, onSend }) {
 
   const onEnterPress = (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
-      submitkHandler(event);
+      submitHandler(event);
     }
   };
-
 
   const onChange = (event) => {
     setValue(event.target.value);
@@ -33,7 +24,6 @@ function ChatForm({ user, authUser, onSend }) {
 
   return (
     <form className="chat-form" onSubmit={submitHandler}>
-
       <button
         className="chat-profile-button chat-profile-button--left"
         type="button"

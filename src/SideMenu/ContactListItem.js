@@ -2,21 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
-const classNames = require("classnames");
-
 function ContactListItem({
   contactItem,
   onClick,
   authUserName,
   currentContactId,
 }) {
-  const isContactActive = () => {
-    if (contactItem.id === currentContactId) {
-      return "contact-button-active";
-    }
-    return false;
-  };
-
   const lastMessage = contactItem.messages[0];
 
   const onToggle = () => {
@@ -44,7 +35,7 @@ function ContactListItem({
   };
 
   const formatedDateOrTime = () => {
-    const d = new Date(lastMessage().dateAndTime);
+    const d = new Date(lastMessage.dateAndTime);
     const now = new Date().getTime();
     if (d.getTime() + 86400000 > now) {
       return formatedTime(d);
