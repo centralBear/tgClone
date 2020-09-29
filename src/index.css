@@ -22,22 +22,11 @@ ul {
   height: 100%;
 }
 .header {
+  display: flex;
   max-width: 1010px;
+  height: 48px;
   margin: 0 auto;
   background-color: #5682a3;
-}
-
-.header-list {
-  display: flex;
-  height: 48px;
-  list-style: none;
-}
-.header-list-item {
-  display: block;
-}
-.header-hamburger {
-  width: 31%;
-  text-decoration: none;
 }
 .header-button {
   width: 100%;
@@ -52,6 +41,7 @@ ul {
 }
 .header-hamburger-button {
   display: flex;
+  width: 31%;
   align-items: center;
   padding: 17px 20px 15px 22px;
 }
@@ -89,7 +79,7 @@ ul {
 .header-logo {
   margin-top: 1px;
 }
-.contact-info {
+.contact-info-wrapper {
   width: 58%;
 }
 .contact-info-button {
@@ -112,17 +102,14 @@ ul {
   color: #ffffff;
   outline: none;
 }
-.header-search,
-.header-context {
-  display: block;
-  width: 55px;
-}
 .header-search-button {
   display: block;
+  width: 55px;
   padding: 7px 10px;
 }
 .header-context-button {
   display: block;
+  width: 55px;
   padding: 7px 12px;
 }
 .main {

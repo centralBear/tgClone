@@ -15,11 +15,14 @@ function ChatHistory({ user, authUser }) {
     ].date;
   };
 
+  const isRenderDate = (message) =>
+    message.date !== getPreviousDate(message) || message.id === 0;
+
   return (
     <div className="chat-history">
       <div className="chat-history-gap" />
       {user.messages.map((message) => {
-        if (message.date !== getPreviousDate(message) || message.id === 0) {
+        if (isRenderDate(message)) {
           if (message.author === authUser.name) {
             return (
               <React.Fragment key={`fragment_${message.id}`}>

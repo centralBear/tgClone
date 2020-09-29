@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
 
 function ContactListItem({
   contactItem,
@@ -7,22 +8,19 @@ function ContactListItem({
   authUserName,
   currentContactId,
 }) {
-  const classes = [];
-
-  if (contactItem.id === currentContactId) {
-    classes.push("contact-button-active");
-  }
-
   const onToggle = () => {
     onClick(contactItem.id);
-  };
+
+  const lastMessage = contactItem.messages[0];
 
   return (
     <li className="contact-item">
       <button
         type="button"
-        className={`${classes.join(" ")} contact-button`}
         onClick={onToggle}
+        className={cn("contact-button", {
+          "contact-button-active": contactItem.id === currentContactId,
+        })}
       >
         <img
           src={contactItem.avatarUrl}
@@ -34,13 +32,13 @@ function ContactListItem({
         <div className="contact-wrapper">
           <p className="contact-name">{contactItem.name}</p>
           <p className="last-message">
-            {contactItem.messages[0].author === authUserName
-              ? `You: ${contactItem.messages[0].text}`
-              : contactItem.messages[0].text}
+            {lastMessage.author === authUserName
+              ? `You: ${lastMessage.text}`
+              : lastMessage.text}
           </p>
         </div>
         <div className="messages-info-wrapper">
-          <p className="last-message-time">{contactItem.messages[0].time}</p>
+          <p className="last-message-time">{lastMessage.time}</p>
         </div>
       </button>
     </li>
