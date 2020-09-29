@@ -1,12 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function MessageDate({ date }) {
-  return <p className="chat-date">{date}</p>;
+function MessageDate({ dateAndTime }) {
+  const formatedDate = () => {
+    return new Date(dateAndTime).toLocaleDateString(undefined, {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  return <p className="chat-date">{formatedDate()}</p>;
 }
 
 MessageDate.propTypes = {
-  date: PropTypes.string.isRequired,
+  dateAndTime: PropTypes.string.isRequired,
 };
 
 export default MessageDate;

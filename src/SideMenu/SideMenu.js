@@ -29,8 +29,7 @@ SideMenu.propTypes = {
           id: PropTypes.number,
           author: PropTypes.string,
           text: PropTypes.string,
-          date: PropTypes.string,
-          time: PropTypes.string,
+          dateAndTime: PropTypes.string,
           isMessageFirst: PropTypes.bool,
         })
       ),
