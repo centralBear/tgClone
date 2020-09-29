@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function ChatForm({ user, authUser, onSend }) {
   const [value, setValue] = useState("");
 
-  const submitHandler = (event) => {
+  const submitkHandler = (event) => {
     event.preventDefault();
     if (value.trim()) {
       onSend(value);
@@ -12,12 +12,28 @@ function ChatForm({ user, authUser, onSend }) {
     setValue("");
   };
 
+  const onClick = (event) => {
+    event.preventDefault();
+    if (value.trim()) {
+      onSend(value);
+    }
+    setValue("");
+  };
+
+  const onEnterPress = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      submitkHandler(event);
+    }
+  };
+
+
   const onChange = (event) => {
     setValue(event.target.value);
   };
 
   return (
     <form className="chat-form" onSubmit={submitHandler}>
+
       <button
         className="chat-profile-button chat-profile-button--left"
         type="button"
@@ -34,6 +50,7 @@ function ChatForm({ user, authUser, onSend }) {
           onChange={onChange}
           className="message-field"
           placeholder="Write a message..."
+          onKeyPress={onEnterPress}
         />
         <div className="message-controls">
           <label htmlFor="file-input" className="message-attach-label">
@@ -72,8 +89,7 @@ ChatForm.propTypes = {
         id: PropTypes.number,
         author: PropTypes.string,
         text: PropTypes.string,
-        date: PropTypes.string,
-        time: PropTypes.string,
+        dateAndTime: PropTypes.string,
         isMessageFirst: PropTypes.bool,
       })
     ),

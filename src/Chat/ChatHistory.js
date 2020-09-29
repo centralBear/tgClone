@@ -6,13 +6,28 @@ import FirstMessage from "./FirstMessage";
 import MessageDate from "./MessageDate";
 
 function ChatHistory({ user, authUser }) {
+  const defaultPreviousIndex = R.defaultTo(0);
+
   const getPreviousDate = (message) => {
     if (message.id === 0) {
-      return message.date;
+      return message.dateAndTime;
     }
     return user.messages[
-      R.findIndex(R.propEq("id", message.id - 1))(user.messages)
-    ].date;
+      defaultPreviousIndex(
+        R.findIndex(R.propEq("id", message.id - 1))(user.messages)
+      )
+    ].dateAndTime;
+  };
+
+  const isRenderDate = (message) => {
+    if (
+      new Date(message.dateAndTime).toDateString() !==
+        new Date(getPreviousDate(message)).toDateString() ||
+      message.id === 0
+    ) {
+      return true;
+    }
+    return false;
   };
 
   const isRenderDate = (message) =>
@@ -31,7 +46,10 @@ function ChatHistory({ user, authUser }) {
                   avatarUrl={authUser.avatarUrl}
                   key={`message_${message.id}`}
                 />
-                <MessageDate date={message.date} key={`date_${message.id}`} />
+                <MessageDate
+                  dateAndTime={message.dateAndTime}
+                  key={`date_${message.id}`}
+                />
               </React.Fragment>
             );
           }
@@ -42,7 +60,10 @@ function ChatHistory({ user, authUser }) {
                 avatarUrl={user.avatarUrl}
                 key={`message ${message.id}`}
               />
-              <MessageDate date={message.date} key={`date_${message.id}`} />
+              <MessageDate
+                dateAndTime={message.dateAndTime}
+                key={`date_${message.id}`}
+              />
             </React.Fragment>
           );
         }
@@ -81,8 +102,7 @@ ChatHistory.propTypes = {
         id: PropTypes.number,
         author: PropTypes.string,
         text: PropTypes.string,
-        date: PropTypes.string,
-        time: PropTypes.string,
+        dateAndTime: PropTypes.string,
         isMessageFirst: PropTypes.bool,
       })
     ),
