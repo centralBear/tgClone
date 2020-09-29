@@ -3,13 +3,15 @@ import PropTypes from "prop-types";
 
 function HeaderTitle({ selectedUser }) {
   return (
-    <button type="button" className="header-button contact-info-button">
-      <span className="header-contact-name">{selectedUser.name}</span>
-      <span className="online-status">
-        last seen&nbsp;
-        {selectedUser.lastVisit}
-      </span>
-    </button>
+    <div className="contact-info-wrapper">
+      <button type="button" className="header-button contact-info-button">
+        <span className="header-contact-name">{selectedUser.name}</span>
+        <span className="online-status">
+          last seen&nbsp;
+          {selectedUser.lastVisit}
+        </span>
+      </button>
+    </div>
   );
 }
 
