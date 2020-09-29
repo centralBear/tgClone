@@ -10,6 +10,7 @@ function ContactListItem({
 }) {
   const onToggle = () => {
     onClick(contactItem.id);
+  };
 
   const lastMessage = contactItem.messages[0];
 
