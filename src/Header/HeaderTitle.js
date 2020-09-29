@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function HeaderTitle({ selectedUser }) {
   return (
-    <li className="header-list-item contact-info">
+    <div className="contact-info-wrapper">
       <button type="button" className="header-button contact-info-button">
         <span className="header-contact-name">{selectedUser.name}</span>
         <span className="online-status">
@@ -11,7 +11,7 @@ function HeaderTitle({ selectedUser }) {
           {selectedUser.lastVisit}
         </span>
       </button>
-    </li>
+    </div>
   );
 }
 
