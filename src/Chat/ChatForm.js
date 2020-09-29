@@ -24,8 +24,6 @@ function ChatForm({ user, authUser, onSend }) {
       >
         <img
           src={authUser.avatarUrl}
-          width="52"
-          height="52"
           alt="Your avatar"
           className="message-form-avatar"
         />
@@ -40,12 +38,7 @@ function ChatForm({ user, authUser, onSend }) {
         <div className="message-controls">
           <label htmlFor="file-input" className="message-attach-label">
             <input type="file" className="message-attach" id="file-input" />
-            <svg
-              className="message-attach-icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
+            <svg className="message-attach-icon" viewBox="0 0 24 24">
               <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
             </svg>
           </label>
@@ -60,8 +53,6 @@ function ChatForm({ user, authUser, onSend }) {
       >
         <img
           src={user.avatarUrl}
-          width="52"
-          height="52"
           alt="Interlocutor avatar"
           className="message-form-avatar"
         />

@@ -77,6 +77,8 @@ ul {
   bottom: -7px;
 }
 .header-logo {
+  width: 62px;
+  height: 14px;
   margin-top: 1px;
 }
 .contact-info-wrapper {
@@ -107,10 +109,18 @@ ul {
   width: 55px;
   padding: 7px 10px;
 }
+.header-search-icon {
+  width: 30px;
+  height: 30px;
+}
 .header-context-button {
   display: block;
   width: 55px;
   padding: 7px 12px;
+}
+.header-context-icon {
+  width: 30px;
+  height: 30px;
 }
 .main {
   display: flex;
@@ -275,6 +285,7 @@ ul {
 }
 .profile-button {
   display: block;
+  height: 42px;
   margin-right: 18px;
   padding: 0;
   border: none;
@@ -284,6 +295,8 @@ ul {
   outline: none;
 }
 .contact-avatar--chat {
+  width: 42px;
+  height: 42px;
   margin: 0;
 }
 .message-author-button {
@@ -303,8 +316,10 @@ ul {
 .message-text {
   margin: 0;
   font-size: 13px;
-  overflow: hidden;
+  line-height: 19px;
   word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: hidden;
 }
 .message-time {
   justify-self: end;
@@ -314,7 +329,7 @@ ul {
   white-space: nowrap;
 }
 .message-text--without-photo {
-  margin-left: 66px;
+  margin-left: 61px;
 }
 .chat-date {
   margin: 5px 0;
@@ -352,6 +367,8 @@ ul {
   margin-left: 20px;
 }
 .message-form-avatar {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
 }
 .message-field {
@@ -383,6 +400,8 @@ ul {
   cursor: pointer;
 }
 .message-attach-icon {
+  width: 24px;
+  height: 24px;
   fill: #b5b5b5;
 }
 .message-attach-label:hover .message-attach-icon,

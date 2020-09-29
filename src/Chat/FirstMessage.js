@@ -9,8 +9,6 @@ function FirstMessage({ message, avatarUrl }) {
           <img
             src={avatarUrl}
             className="contact-avatar contact-avatar--chat"
-            width="42"
-            height="42"
             alt="User avatar"
           />
         </button>
