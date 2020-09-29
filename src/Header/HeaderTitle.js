@@ -3,15 +3,13 @@ import PropTypes from "prop-types";
 
 function HeaderTitle({ selectedUser }) {
   return (
-    <li className="header-list-item contact-info">
-      <button type="button" className="header-button contact-info-button">
-        <span className="header-contact-name">{selectedUser.name}</span>
-        <span className="online-status">
-          last seen&nbsp;
-          {selectedUser.lastVisit}
-        </span>
-      </button>
-    </li>
+    <button type="button" className="header-button contact-info-button">
+      <span className="header-contact-name">{selectedUser.name}</span>
+      <span className="online-status">
+        last seen&nbsp;
+        {selectedUser.lastVisit}
+      </span>
+    </button>
   );
 }
 
@@ -26,8 +24,7 @@ HeaderTitle.propTypes = {
         id: PropTypes.number,
         author: PropTypes.string,
         text: PropTypes.string,
-        date: PropTypes.string,
-        time: PropTypes.string,
+        dateAndTime: PropTypes.string,
         isMessageFirst: PropTypes.bool,
       })
     ),

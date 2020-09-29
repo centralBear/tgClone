@@ -21,24 +21,21 @@ function App() {
           id: 2,
           author: authUser.name,
           text: "Привет. Отлично.",
-          date: "Thursday, August 20, 2020",
-          time: "6:28:55 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
         {
           id: 1,
           author: "Олег Газманов",
           text: "Как дела?",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:20 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: false,
         },
         {
           id: 0,
           author: "Олег Газманов",
           text: "Привет!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -53,8 +50,7 @@ function App() {
           id: 0,
           author: "Филипп Киркоров",
           text: "Test text2!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -69,8 +65,7 @@ function App() {
           id: 0,
           author: "TestUser1",
           text: "Test text3!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("September 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -85,8 +80,7 @@ function App() {
           id: 0,
           author: "TestUser2",
           text: "Test text4!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -101,8 +95,7 @@ function App() {
           id: 0,
           author: "TestUser3",
           text: "Test text5!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -117,8 +110,7 @@ function App() {
           id: 0,
           author: "TestUser4",
           text: "Test text6!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -133,8 +125,7 @@ function App() {
           id: 0,
           author: "TestUser5",
           text: "Test text7!",
-          date: "Thursday, August 20, 2020",
-          time: "6:27:00 PM",
+          dateAndTime: new Date("August 20, 2020 18:24:20").toString(),
           isMessageFirst: true,
         },
       ],
@@ -151,28 +142,6 @@ function App() {
 
   const selectedUser = R.find(R.propEq("id", currentContactId))(contactList);
 
-  const actualTime = () => {
-    let hours = new Date().getHours();
-    let minutes = new Date().getMinutes();
-    let seconds = new Date().getSeconds();
-    const ampm = hours >= 12 ? "PM" : "AM";
-    hours %= 12;
-    hours = hours || 12;
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    seconds = seconds < 10 ? `0${seconds}` : seconds;
-    const time = `${hours}:${minutes}:${seconds} ${ampm}`;
-    return time;
-  };
-
-  const actualDate = () => {
-    return new Date().toLocaleDateString(undefined, {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
   const toggleSelected = (clickedId) => {
     setCurrentContactId(clickedId);
   };
@@ -180,7 +149,8 @@ function App() {
   const isMessageFirst = () => {
     if (
       selectedUser.messages[0].author !== authUser.name ||
-      selectedUser.messages[0].date !== actualDate()
+      new Date(selectedUser.messages[0].dateAndTime).toDateString() !==
+        new Date().toDateString()
     ) {
       return true;
     }
@@ -192,8 +162,7 @@ function App() {
       id: selectedUser.messages[0].id + 1,
       author: authUser.name,
       text: message,
-      date: actualDate(),
-      time: actualTime(),
+      dateAndTime: new Date().toString(),
       isMessageFirst: isMessageFirst(),
     };
   };
