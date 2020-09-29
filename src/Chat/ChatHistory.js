@@ -15,12 +15,8 @@ function ChatHistory({ user, authUser }) {
     ].date;
   };
 
-  const isRenderDate = (message) => {
-    if (message.date !== getPreviousDate(message) || message.id === 0) {
-      return true;
-    }
-    return false;
-  };
+  const isRenderDate = (message) =>
+    message.date !== getPreviousDate(message) || message.id === 0;
 
   return (
     <div className="chat-history">

@@ -17,9 +17,7 @@ function ContactListItem({
     onClick(id);
   };
 
-  const lastMessage = () => {
-    return contactItem.messages[0];
-  };
+  const lastMessage = contactItem.messages[0];
 
   return (
     <li className="contact-item">
@@ -38,13 +36,13 @@ function ContactListItem({
         <div className="contact-wrapper">
           <p className="contact-name">{contactItem.name}</p>
           <p className="last-message">
-            {lastMessage().author === authUserName
-              ? `You: ${lastMessage().text}`
-              : lastMessage().text}
+            {lastMessage.author === authUserName
+              ? `You: ${lastMessage.text}`
+              : lastMessage.text}
           </p>
         </div>
         <div className="messages-info-wrapper">
-          <p className="last-message-time">{lastMessage().time}</p>
+          <p className="last-message-time">{lastMessage.time}</p>
         </div>
       </button>
     </li>
