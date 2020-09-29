@@ -8,9 +8,8 @@ function ContactListItem({
   authUserName,
   currentContactId,
 }) {
-  const onToggle = (id) => {
-    onClick(id);
-  };
+  const onToggle = () => {
+    onClick(contactItem.id);
 
   const lastMessage = contactItem.messages[0];
 
@@ -18,10 +17,10 @@ function ContactListItem({
     <li className="contact-item">
       <button
         type="button"
+        onClick={onToggle}
         className={cn("contact-button", {
           "contact-button-active": contactItem.id === currentContactId,
         })}
-        onClick={() => onToggle(contactItem.id)}
       >
         <img
           src={contactItem.avatarUrl}

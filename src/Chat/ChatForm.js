@@ -12,8 +12,12 @@ function ChatForm({ user, authUser, onSend }) {
     setValue("");
   };
 
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
-    <form className="chat-form" onSubmit={(event) => submitHandler(event)}>
+    <form className="chat-form" onSubmit={submitHandler}>
       <button
         className="chat-profile-button chat-profile-button--left"
         type="button"
@@ -29,7 +33,7 @@ function ChatForm({ user, authUser, onSend }) {
       <div className="chat-form-wrapper">
         <textarea
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={onChange}
           className="message-field"
           placeholder="Write a message..."
         />
