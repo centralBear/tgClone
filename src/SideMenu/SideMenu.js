@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import SearchForm from "./SearchForm";
 import ContactList from "./ContactList";
+import useStyles from "./useStyles";
 
 function SideMenu({ contactList, onClick, authUserName, currentContactId }) {
+  const classes = useStyles();
+
   return (
-    <div className="side-menu">
+    <div className={classes.sideMenu}>
       <SearchForm />
       <ContactList
         contactList={contactList}

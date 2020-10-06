@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
+import useStyles from "./useStyles";
 
 function Message({ message }) {
+  const classes = useStyles();
+
   const formatedTime = () => {
     const d = new Date(message.dateAndTime);
     let hours = d.getHours();
@@ -17,12 +21,12 @@ function Message({ message }) {
   };
 
   return (
-    <div className="message-wrapper">
-      <div className="content-message-wrapper">
-        <p className="message-text message-text--without-photo">
+    <div className={classes.messageWrapper}>
+      <div className={classes.contentMessageWrapper}>
+        <p className={cn(classes.messageText, classes.messageTextWithoutPhoto)}>
           {message.text}
         </p>
-        <p className="message-time">{formatedTime()}</p>
+        <p className={classes.messageTime}>{formatedTime()}</p>
       </div>
     </div>
   );

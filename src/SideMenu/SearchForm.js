@@ -1,10 +1,13 @@
 import React from "react";
+import useStyles from "./useStyles";
 
 export default function SearchForm() {
+  const classes = useStyles();
+
   return (
-    <form className="search-form">
+    <form className={classes.searchForm}>
       <input
-        className="search-input"
+        className={classes.searchInput}
         type="text"
         name="search"
         placeholder="Search"

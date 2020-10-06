@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import ChatHistory from "./ChatHistory";
 import ChatForm from "./ChatForm";
+import useStyles from "./useStyles";
 
 function Chat({ selectedUser, authUser, onSend }) {
+  const classes = useStyles();
+
   return (
-    <div className="chat">
+    <div className={classes.chat}>
       <ChatHistory user={selectedUser} authUser={authUser} />
       <ChatForm user={selectedUser} authUser={authUser} onSend={onSend} />
     </div>

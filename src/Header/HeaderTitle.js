@@ -1,12 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
+import useStyles from "./useStyles";
 
 function HeaderTitle({ selectedUser }) {
+  const classes = useStyles();
+
   return (
-    <div className="contact-info-wrapper">
-      <button type="button" className="header-button contact-info-button">
-        <span className="header-contact-name">{selectedUser.name}</span>
-        <span className="online-status">
+    <div className={classes.contactInfoWrapper}>
+      <button
+        type="button"
+        className={cn(classes.headerButton, classes.contactInfoButton)}
+      >
+        <span className={classes.headerContactName}>{selectedUser.name}</span>
+        <span className={classes.onlineStatus}>
           last seen&nbsp;
           {selectedUser.lastVisit}
         </span>

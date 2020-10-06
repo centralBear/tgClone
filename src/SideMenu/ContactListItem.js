@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
+import useStyles from "./useStyles";
 
 function ContactListItem({
   contactItem,
@@ -8,6 +9,8 @@ function ContactListItem({
   authUserName,
   currentContactId,
 }) {
+  const classes = useStyles();
+
   const lastMessage = contactItem.messages[0];
 
   const onToggle = () => {
@@ -47,29 +50,32 @@ function ContactListItem({
   };
 
   return (
-    <li className="contact-item">
+    <li className={classes.contactItem}>
       <button
         type="button"
         onClick={onToggle}
-        className={cn("contact-button", {
-          "contact-button-active": contactItem.id === currentContactId,
-        })}
+        className={cn(
+          classes.contactButton,
+          contactItem.id === currentContactId
+            ? classes.contactButtonActive
+            : false
+        )}
       >
         <img
           src={contactItem.avatarUrl}
           alt="User avatar"
-          className="contact-avatar"
+          className={classes.contactAvatar}
         />
-        <div className="contact-wrapper">
-          <p className="contact-name">{contactItem.name}</p>
-          <p className="last-message">
+        <div className={classes.contactWrapper}>
+          <p className={classes.contactName}>{contactItem.name}</p>
+          <p className={classes.lastMessage}>
             {lastMessage.author === authUserName
               ? `You: ${lastMessage.text}`
               : lastMessage.text}
           </p>
         </div>
-        <div className="messages-info-wrapper">
-          <p className="last-message-time">{formatedDateOrTime()}</p>
+        <div>
+          <p className={classes.lastMessageTime}>{formatedDateOrTime()}</p>
         </div>
       </button>
     </li>

@@ -3,8 +3,11 @@ import * as R from "ramda";
 import Header from "./Header/Header";
 import SideMenu from "./SideMenu/SideMenu";
 import Chat from "./Chat/Chat";
+import useStyles from "./useStyles";
 
 function App() {
+  const classes = useStyles();
+
   const authUser = {
     name: "Антон Ридель",
     avatarUrl: "img/avatar_standart.jpg",
@@ -186,7 +189,7 @@ function App() {
   return (
     <>
       <Header selectedUser={selectedUser} />
-      <main className="main">
+      <main className={classes.main}>
         <SideMenu
           contactList={contactList}
           authUserName={authUser.name}

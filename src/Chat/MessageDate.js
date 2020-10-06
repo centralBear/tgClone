@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import useStyles from "./useStyles";
 
 function MessageDate({ dateAndTime }) {
+  const classes = useStyles();
+
   const formatedDate = () => {
     return new Date(dateAndTime).toLocaleDateString(undefined, {
       weekday: "long",
@@ -11,7 +14,7 @@ function MessageDate({ dateAndTime }) {
     });
   };
 
-  return <p className="chat-date">{formatedDate()}</p>;
+  return <p className={classes.chatDate}>{formatedDate()}</p>;
 }
 
 MessageDate.propTypes = {
