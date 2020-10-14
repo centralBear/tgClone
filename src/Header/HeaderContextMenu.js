@@ -6,12 +6,9 @@ export default function HeaderContextMenu() {
   const classes = useStyles();
 
   return (
-    <button
-      type="button"
-      className={cn(classes.headerButton, classes.headerContextButton)}
-    >
+    <button type="button" className={cn(classes.button, classes.contextButton)}>
       <img
-        className={classes.headerContextIcon}
+        className={classes.contextIcon}
         src="img/dots.svg"
         alt="Context menu icon"
       />

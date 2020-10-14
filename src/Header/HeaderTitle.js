@@ -10,9 +10,9 @@ function HeaderTitle({ selectedUser }) {
     <div className={classes.contactInfoWrapper}>
       <button
         type="button"
-        className={cn(classes.headerButton, classes.contactInfoButton)}
+        className={cn(classes.button, classes.contactInfoButton)}
       >
-        <span className={classes.headerContactName}>{selectedUser.name}</span>
+        <span className={classes.contactName}>{selectedUser.name}</span>
         <span className={classes.onlineStatus}>
           last seen&nbsp;
           {selectedUser.lastVisit}

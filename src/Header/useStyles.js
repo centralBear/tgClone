@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
     margin: [0, "auto"],
     backgroundColor: "#5682a3",
   },
-  headerButton: {
+  button: {
     width: "100%",
     border: "none",
     backgroundColor: "transparent",
@@ -18,13 +18,13 @@ const useStyles = createUseStyles({
       outline: "none",
     },
   },
-  headerHamburgerButton: {
+  hamburgerButton: {
     display: "flex",
     width: "31%",
     alignItems: "center",
     padding: [17, 20, 15, 22],
     "&:hover, &:focus": {
-      "& > $headerHamburgerIcon": {
+      "& > $hamburgerIcon": {
         "&::before": {
           top: -7,
         },
@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
       },
     },
   },
-  headerHamburgerIcon: {
+  hamburgerIcon: {
     position: "relative",
     width: 18,
     height: 2,
@@ -56,7 +56,7 @@ const useStyles = createUseStyles({
       bottom: -6,
     },
   },
-  headerLogo: {
+  logo: {
     width: 62,
     height: 14,
     marginTop: 1,
@@ -66,7 +66,7 @@ const useStyles = createUseStyles({
   },
   contactInfoButton: {
     display: "flex",
-    padding: "15px 19px",
+    padding: [15, 19],
     fontSize: 13,
     lineHeight: "18px",
     textDecoration: "none",
@@ -77,7 +77,7 @@ const useStyles = createUseStyles({
       },
     },
   },
-  headerContactName: {
+  contactName: {
     marginRight: 6,
     fontWeight: "bold",
     color: "#ffffff",
@@ -85,21 +85,21 @@ const useStyles = createUseStyles({
   onlineStatus: {
     color: "#b9cfe3",
   },
-  headerSearchButton: {
+  searchButton: {
     display: "block",
     width: 55,
     padding: [7, 10],
   },
-  headerSearchIcon: {
+  searchIcon: {
     width: 30,
     height: 30,
   },
-  headerContextButton: {
+  contextButton: {
     display: "block",
     width: 55,
     padding: [7, 12],
   },
-  headerContextIcon: {
+  contextIcon: {
     width: 30,
     height: 30,
   },
