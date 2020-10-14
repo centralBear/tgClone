@@ -17,13 +17,13 @@ const useStyles = createUseStyles({
   messageWrapper: {
     width: "83%",
     maxWidth: 560,
-    padding: "0 15px 0 15px",
-    margin: "0 auto",
+    padding: [0, 15, 0, 15],
+    margin: [0, "auto"],
   },
-  contentMessageWrapper: {
+  contentWrapper: {
     display: "flex",
     alignItems: "flex-start",
-    margin: "8px 10px 8px 16px",
+    margin: [8, 10, 8, 16],
   },
   profileButton: {
     display: "block",
@@ -71,7 +71,7 @@ const useStyles = createUseStyles({
   },
   messageTime: {
     justifySelf: "end",
-    margin: "0 0 0 auto",
+    margin: [0, 0, 0, "auto"],
     fontSize: 11,
     color: "#adadad",
     whiteSpace: "nowrap",
@@ -79,9 +79,9 @@ const useStyles = createUseStyles({
   messageTextWithoutPhoto: {
     marginLeft: 61,
   },
-  chatDate: {
-    margin: "5px 0",
-    padding: "4px 7px",
+  date: {
+    margin: [5, 0],
+    padding: [4, 7],
     fontSize: 13,
     lineHeight: "18px",
     color: "#999999",
@@ -95,8 +95,8 @@ const useStyles = createUseStyles({
     maxWidth: 554,
     display: "flex",
     alignItems: "flex-start",
-    margin: "0 auto",
-    padding: "10px 15px 21px 15px",
+    margin: [0, "auto"],
+    padding: [10, 15, 21, 15],
   },
   chatFormWrapper: {
     maxWidth: "73%",
@@ -123,16 +123,24 @@ const useStyles = createUseStyles({
     width: 382,
     height: 52,
     marginBottom: 11,
-    padding: "0 17px",
+    padding: [0, 17],
     fontFamily: "inherit",
     fontSize: 12,
     lineHeight: "20px",
     resize: "none",
     border: "none",
-    borderBottom: "1px solid #e8e8e8",
+    borderBottom: {
+      width: 1,
+      style: "solid",
+      color: "#e8e8e8",
+    },
     outline: "none",
     "&:focus": {
-      borderBottom: "2px solid #77b7e4",
+      borderBottom: {
+        width: 2,
+        style: "solid",
+        color: "#77b7e4",
+      },
     },
   },
   messageControls: {
@@ -162,7 +170,7 @@ const useStyles = createUseStyles({
     height: 24,
     fill: "#b5b5b5",
   },
-  chatSendButton: {
+  sendButton: {
     height: 18,
     color: "#499dd9",
     fontSize: 13,

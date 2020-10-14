@@ -22,7 +22,7 @@ function Message({ message }) {
 
   return (
     <div className={classes.messageWrapper}>
-      <div className={classes.contentMessageWrapper}>
+      <div className={classes.contentWrapper}>
         <p className={cn(classes.messageText, classes.messageTextWithoutPhoto)}>
           {message.text}
         </p>
