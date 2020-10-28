@@ -8,11 +8,11 @@ export default function HeaderMainMenu() {
   return (
     <button
       type="button"
-      className={cn(classes.headerButton, classes.headerHamburgerButton)}
+      className={cn(classes.button, classes.hamburgerButton)}
     >
-      <div className={classes.headerHamburgerIcon} />
+      <div className={classes.hamburgerIcon} />
       <img
-        className={classes.headerLogo}
+        className={classes.logo}
         src="img/Telegram.svg"
         alt="Telegram logo"
       />

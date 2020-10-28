@@ -6,12 +6,9 @@ export default function HeaderSearch() {
   const classes = useStyles();
 
   return (
-    <button
-      type="button"
-      className={cn(classes.headerButton, classes.headerSearchButton)}
-    >
+    <button type="button" className={cn(classes.button, classes.searchButton)}>
       <img
-        className={classes.headerSearchIcon}
+        className={classes.searchIcon}
         src="img/search_white.svg"
         alt="Search icon"
       />
