@@ -30,9 +30,13 @@ const useStyles = createUseStyles({
     display: "flex",
     maxWidth: 1010,
     height: "95%",
-    margin: "0 auto",
+    margin: [0, "auto"],
     paddingBottom: 23,
-    border: "2px solid #e9ebed",
+    border: {
+      width: 2,
+      style: "solid",
+      color: "#e9ebed",
+    },
   },
 });
 
