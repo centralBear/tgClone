@@ -14,7 +14,7 @@ function MessageDate({ dateAndTime }) {
     });
   };
 
-  return <p className={classes.chatDate}>{formatedDate()}</p>;
+  return <p className={classes.date}>{formatedDate()}</p>;
 }
 
 MessageDate.propTypes = {

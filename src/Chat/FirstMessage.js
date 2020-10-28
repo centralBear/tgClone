@@ -22,7 +22,7 @@ function FirstMessage({ message, avatarUrl }) {
 
   return (
     <div className={classes.messageWrapper}>
-      <div className={classes.contentMessageWrapper}>
+      <div className={classes.contentWrapper}>
         <button type="button" className={classes.profileButton}>
           <img
             src={avatarUrl}
