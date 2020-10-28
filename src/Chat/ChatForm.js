@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
+import useStyles from "./useStyles";
 
 function ChatForm({ user, authUser, onSend }) {
+  const classes = useStyles();
+
   const [value, setValue] = useState("");
 
   const submitHandler = (event) => {
@@ -23,45 +27,52 @@ function ChatForm({ user, authUser, onSend }) {
   };
 
   return (
-    <form className="chat-form" onSubmit={submitHandler}>
+    <form className={classes.chatForm} onSubmit={submitHandler}>
       <button
-        className="chat-profile-button chat-profile-button--left"
+        className={cn(classes.chatProfileButton, classes.chatProfileButtonLeft)}
         type="button"
       >
         <img
           src={authUser.avatarUrl}
           alt="Your avatar"
-          className="message-form-avatar"
+          className={classes.messageFormAvatar}
         />
       </button>
-      <div className="chat-form-wrapper">
+      <div className={classes.chatFormWrapper}>
         <textarea
           value={value}
           onChange={onChange}
-          className="message-field"
+          className={classes.messageField}
           placeholder="Write a message..."
           onKeyPress={onEnterPress}
         />
-        <div className="message-controls">
-          <label htmlFor="file-input" className="message-attach-label">
-            <input type="file" className="message-attach" id="file-input" />
-            <svg className="message-attach-icon" viewBox="0 0 24 24">
+        <div className={classes.messageControls}>
+          <label htmlFor="file-input" className={classes.messageAttachLabel}>
+            <input
+              type="file"
+              className={classes.messageAttach}
+              id="file-input"
+            />
+            <svg className={classes.messageAttachIcon} viewBox="0 0 24 24">
               <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
             </svg>
           </label>
-          <button className="chat-send-button" type="submit">
+          <button className={classes.sendButton} type="submit">
             Send
           </button>
         </div>
       </div>
       <button
-        className="chat-profile-button chat-profile-button--right"
+        className={cn(
+          classes.chatProfileButton,
+          classes.chatProfileButtonRight
+        )}
         type="button"
       >
         <img
           src={user.avatarUrl}
           alt="Interlocutor avatar"
-          className="message-form-avatar"
+          className={classes.messageFormAvatar}
         />
       </button>
     </form>

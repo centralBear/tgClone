@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
+import useStyles from "./useStyles";
 
 function FirstMessage({ message, avatarUrl }) {
+  const classes = useStyles();
+
   const formatedTime = () => {
     const d = new Date(message.dateAndTime);
     let hours = d.getHours();
@@ -17,22 +21,22 @@ function FirstMessage({ message, avatarUrl }) {
   };
 
   return (
-    <div className="message-wrapper">
-      <div className="content-message-wrapper">
-        <button type="button" className="profile-button">
+    <div className={classes.messageWrapper}>
+      <div className={classes.contentWrapper}>
+        <button type="button" className={classes.profileButton}>
           <img
             src={avatarUrl}
-            className="contact-avatar contact-avatar--chat"
+            className={cn(classes.contactAvatar, classes.contactAvatarChat)}
             alt="User avatar"
           />
         </button>
         <div className="message-text-wrapper">
-          <button type="button" className="message-author-button">
+          <button type="button" className={classes.messageAuthorButton}>
             {message.author}
           </button>
-          <p className="message-text">{message.text}</p>
+          <p className={classes.messageText}>{message.text}</p>
         </div>
-        <p className="message-time message-time--first">{formatedTime()}</p>
+        <p className={classes.messageTime}>{formatedTime()}</p>
       </div>
     </div>
   );

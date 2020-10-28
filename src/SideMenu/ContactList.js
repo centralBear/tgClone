@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ContactListItem from "./ContactListItem";
+import useStyles from "./useStyles";
 
 function ContactList({ contactList, onClick, authUserName, currentContactId }) {
+  const classes = useStyles();
+
   return (
-    <ul className="contact-list">
+    <ul className={classes.contactList}>
       {contactList.map((contactItem) => (
         <ContactListItem
           contactItem={contactItem}

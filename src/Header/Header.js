@@ -4,10 +4,13 @@ import HeaderMainMenu from "./HeaderMainMenu";
 import HeaderTitle from "./HeaderTitle";
 import HeaderSearch from "./HeaderSearch";
 import HeaderContextMenu from "./HeaderContextMenu";
+import useStyles from "./useStyles";
 
 function Header({ selectedUser }) {
+  const classes = useStyles();
+
   return (
-    <header className="header">
+    <header className={classes.header}>
       <HeaderMainMenu />
       <HeaderTitle selectedUser={selectedUser} />
       <HeaderSearch />

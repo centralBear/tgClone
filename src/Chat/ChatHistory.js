@@ -4,8 +4,11 @@ import PropTypes from "prop-types";
 import Message from "./Message";
 import FirstMessage from "./FirstMessage";
 import MessageDate from "./MessageDate";
+import useStyles from "./useStyles";
 
 function ChatHistory({ user, authUser }) {
+  const classes = useStyles();
+
   const defaultPreviousIndex = R.defaultTo(0);
 
   const getPreviousDate = (message) => {
@@ -24,8 +27,8 @@ function ChatHistory({ user, authUser }) {
       new Date(getPreviousDate(message)).toDateString() || message.id === 0;
 
   return (
-    <div className="chat-history">
-      <div className="chat-history-gap" />
+    <div className={classes.chatHistory}>
+      <div className={classes.chatHistoryGap} />
       {user.messages.map((message) => {
         if (isRenderDate(message)) {
           if (message.author === authUser.name) {
